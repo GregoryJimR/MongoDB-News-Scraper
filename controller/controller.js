@@ -53,11 +53,25 @@ module.exports = function(app) {
     });
 
     // // //route for update article to saved: true
-
+    //sets saved to true for articles, allowing them to render .on("click") for VIEW SAVED ARTICLES
     app.put("/saved/:id", function(req, res) {
         console.log("/saved:id called");
         let id = req.params.id;
         db.Article.update({ _id: id }, { $set: { saved: true } });
+    });
+
+    //sets saved to false for Articles, effectively deleting them
+    app.put("/deleted/:id", function(req, res) {
+        console.log("/saved:id called");
+        let id = req.params.id;
+        db.Article.update({ _id: id }, { $set: { saved: false } });
+    });
+
+
+    //deletes notes
+    app.put("/deletedNote/:id", function(req, res) {
+        let id = req.params.id;
+        db.Note.remove({ _id: id });
     });
 
 

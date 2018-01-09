@@ -20,16 +20,34 @@ $(function() {
     });
 
     //loads new handlebars body, should only display articles with status of save=true
-
+    //save article
     $(".saveArt").on("click", function() {
         let id = $(this).data("id");
         console.log("button id: " + id);
         $.ajax("/saved/" + id, {
             type: "PUT",
-            data: true
+            data: id
         }).then(console.log("article saved"));
     });
-
+    //delete article (un-save)
+    $(".deleteArt").on("click", function() {
+        let id = $(this).data("id");
+        console.log("button id: " + id);
+        $.ajax("/deleted/" + id, {
+            type: "PUT",
+            data: id
+        }).then(console.log("article saved"));
+    });
+    //delete note
+    $(".deleteNote").on("click", function() {
+        let id = $(this).data("id");
+        console.log("button id: " + id);
+        $.ajax("/deletedNote/" + id, {
+            type: "PUT",
+            data: id
+        }).then(console.log("article saved"));
+    });
+    //render saved articles in saved.handlebars
     $("#viewSaved").on("click", function() {
         console.log("viewSaved clicked");
         $.ajax({
@@ -39,7 +57,7 @@ $(function() {
             location.assign('/savedArticles');
         });
     });
-
+    //saves note and populates
     $("#saveNote").on("click", function() {
         let id = $(this).data("id");
         console.log("submit button id: " + id);

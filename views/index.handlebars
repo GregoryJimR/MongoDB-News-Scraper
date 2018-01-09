@@ -1,15 +1,16 @@
+<h3 id="scrapeBoxText">Scraped Articles</h3>
 {{#each article}}
-    <div class="container articleItem">
-        <li>
-            <h4>{{title}}</h4>
-            <hr>
-            <h5>{{summary}}</h5>
-            <hr>
-            <h6>{{link}}</h6>
-            {{!--<button class="save" data-id="{{article.id}}" data="{{true}}">--}}
+<div class="container articleItem">
+    <li>
+        <h4>{{title}}</h4>
+        <hr>
+        <h5>{{summary}}</h5>
+        <hr>
+        <h6>{{link}}</h6>
+        {{!--<button class="save" data-id="{{article.id}}" data="{{true}}">--}}
             <button class="btn saveArt" data-id="{{id}}">
 		SAVE
 	</button>
-        </li>
-    </div>
+    </li>
+</div>
 {{/each}}
