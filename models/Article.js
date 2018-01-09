@@ -6,19 +6,19 @@ var Schema = mongoose.Schema;
 var ArticleSchema = new Schema({
     title: {
         type: String,
-        required: true
+        required: false
     },
     summary: {
         type: String,
-        require: true
+        require: false
     },
     link: {
         type: String,
-        required: true
+        required: false
     },
     saved: {
         type: Boolean,
-        default: false
+        default: true
     },
     note: {
         type: Schema.Types.ObjectId,
@@ -28,4 +28,4 @@ var ArticleSchema = new Schema({
 
 var Article = mongoose.model("Article", ArticleSchema);
 
-module.esports = Article;
+module.exports = Article;
